@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+       <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>
+            todo list
+        </title>
+        
+    </head>
+    <body>
+        <h2>hi {{user}}</h2>
+        <div class = 'add'>
+<form method="POST" action="/" class="task_add">
+    {% csrf_token %}
+    {{form.title}}
+    <input type="submit" name="submit" style="color:aliceblue;background-color:  rgb(137, 81, 189); font-family:cursive;border-radius: 15%;">
+    
+</form>
+</div >
+{% for task in tasks %}
+<div class="changes">
+   
+   <div class="task">
+   {% if task.complete is  True %}
+    <i><s><h2>{{task}}</h2></s></i>
+   {% else %} 
+   <h2>{{task}}</h2>
+   {{task.date}}
+   {% endif %}
+</div>
+<div class="change">
+    <a href="{% url 'task_update' task.id %}" >update</a>
+    <a href="{% url 'task_delete' task.id %}" >delete</a>
+    </div>
+</div> 
+{% endfor %}
+</body>
+</html>
