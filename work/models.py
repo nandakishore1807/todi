@@ -1,5 +1,6 @@
 from turtle import title
 from django.db import models
+from tkinter import *
 
 class details(models.Model):
     title  = models.CharField(max_length=200)

@@ -1,6 +1,7 @@
 from django import views
 from django.urls import URLPattern, path
 from .views import *
+from tkinter import *
 
 urlpatterns = [
     path('',task),

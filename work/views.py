@@ -5,7 +5,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import *
-
+from tkinter import *
 def task(request):
     tasks = details.objects.all()
     forms = TaskForm()
